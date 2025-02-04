@@ -1,18 +1,17 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
+import { createContext, useContext, useReducer } from "react";
+import questions from "../components/Questions";
 
 const QuizContext = createContext();
 
 const SECS_PER_QUESTION = 30;
 
 const initialState = {
-  questions: [],
-
-  // 'loading', 'error', 'ready', 'active', 'finished'
-  status: "loading",
+  questions: questions,
+  status: "ready",
   index: 0,
   answer: null,
   points: 0,
-  highscore: 0,
+  highScore: 0,
   secondsRemaining: null,
 };
 
@@ -52,8 +51,8 @@ function reducer(state, action) {
       return {
         ...state,
         status: "finished",
-        highscore:
-          state.points > state.highscore ? state.points : state.highscore,
+        highScore:
+          state.points > state.highScore ? state.points : state.highScore,
       };
     case "restart":
       return { ...initialState, questions: state.questions, status: "ready" };
@@ -72,7 +71,7 @@ function reducer(state, action) {
 
 function QuizProvider({ children }) {
   const [
-    { questions, status, index, answer, points, highscore, secondsRemaining },
+    { questions, status, index, answer, points, highScore, secondsRemaining },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -82,13 +81,6 @@ function QuizProvider({ children }) {
     0
   );
 
-  useEffect(function () {
-    fetch("http://localhost:9000/questions")
-      .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
-      .catch((err) => dispatch({ type: "dataFailed" }));
-  }, []);
-
   return (
     <QuizContext.Provider
       value={{
@@ -97,7 +89,7 @@ function QuizProvider({ children }) {
         index,
         answer,
         points,
-        highscore,
+        highScore,
         secondsRemaining,
         numQuestions,
         maxPossiblePoints,
