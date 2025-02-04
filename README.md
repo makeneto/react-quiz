@@ -1,4 +1,5 @@
-# React Quiz - Teste Seus Conhecimentos!
+# React Quiz (Redux, e mais...)
+### React Quiz - Teste Seus Conhecimentos!
 O React Quiz é um jogo interativo desenvolvido com React que desafia seus conhecimentos em diversas áreas. Com perguntas dinâmicas e um design intuitivo, ele proporciona uma experiência envolvente para quem quer aprender se divertindo.
 
 ### 🔥 Destaques do jogo:
