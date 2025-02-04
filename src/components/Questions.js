@@ -1,6 +1,6 @@
 const questions = [
     {
-        "question": "Which is the most popular JavaScript framework?",
+        "question": "Which is the most popular JavaScript library?",
         "options": ["Angular", "React", "Svelte", "Vue"],
         "correctOption": 1,
         "points": 10
