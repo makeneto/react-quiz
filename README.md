@@ -8,3 +8,5 @@ O React Quiz é um jogo interativo desenvolvido com React que desafia seus conhe
 ✔️ Contador de pontos para acompanhar seu progresso
 
 Teste suas habilidades e veja se você consegue acertar todas as perguntas! 🚀
+
+![Image](https://github.com/user-attachments/assets/d66b9b97-5511-4db5-8402-5928cae039af)
